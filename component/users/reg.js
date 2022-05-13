@@ -9,7 +9,7 @@ router.post("/api/user/reg", async (req,res)=>{
     const body = req.body
     const login = body.login
     const password = body.password
-
+    console.log(body);
     if (!login || !password) {
         res.status(403).send("Request invalid")
         return

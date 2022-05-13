@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const path = require('path')
 const PORT = 13373
+const cors = require('cors')
 const connection = require("./connectMysql")
 connection.connect((err)=> {
     if (err) {
@@ -16,6 +17,7 @@ connection.connect((err)=> {
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cors())
 
 const userRequest = require("./component/users/index")
 const disputeRequest = require("./component/dispute/index")
