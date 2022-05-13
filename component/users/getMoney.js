@@ -17,6 +17,11 @@ router.get("/api/user/getMoney", async (req,res) => {
                 resolve()
                 return
             }
+            if (result.length == 0) {
+                res.sendStatus(422)
+                resolve()
+                return
+            }
             console.log(result[0].money);
             res.status(200).send(result[0])
             resolve()
